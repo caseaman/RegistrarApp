@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>RegistrarApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Formulario Login</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" [(ngModel)]="email" maxlength="12" minlength="6" required ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="password" maxlength="40" minlength="6" required ></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="userLogin()">Login</ion-button>
+      <ion-button [routerLink]="['/recuperar']">Recuperar Contraseña</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Mostrar información del usuario si userInfo no es null -->
+  <ion-card *ngIf="userInfo">
+    <ion-card-content>
+      <ion-text>Email: {{userInfo.email}}</ion-text><br>
+      <ion-text>Password: {{userInfo.password}}</ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="userInfo">
+    <ion-text>Bienvenido a RegistrarApp {{ userInfo.email }}!</ion-text>
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+</ion-content>
