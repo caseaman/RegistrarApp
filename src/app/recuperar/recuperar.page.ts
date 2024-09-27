@@ -12,7 +12,7 @@ export class RecuperarPage {
   constructor(private router: Router) {}
 
   Restablecer() {
-    if (this.email) {
+    if (this.validaremail(this.email)) {
       alert('Se ha enviado un correo a ' + this.email + ' para restablecer la contraseña.');
       this.router.navigate(['/login']);
     } else {

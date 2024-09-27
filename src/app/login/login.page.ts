@@ -24,7 +24,8 @@ export class LoginPage {
   userLogin() {
     if (this.validaremail(this.email) && this.password) {
       setTimeout(() => {
-        this.router.navigate(['/home']);  // Redirigir al Home después de 2 segundos
+        this.router.navigate(['/home'], { queryParams: { email: this.email } });  // Pasamos el email
+
       }, 2000);
       // Se guarda la información del usuario en la variable userInfo
       this.userInfo = {
